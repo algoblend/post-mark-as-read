@@ -1,5 +1,5 @@
 orbs:
-  wpengine: ryanshoover/wpengine@x.y.z
+  wpengine: ryanshoover/wpengine@0.7.2
 version: 2.1
 workflows:
   test-deploy:
