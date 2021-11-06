@@ -6,7 +6,6 @@
 wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/post-mark-as-read/
-!wp-content/themes/
 
 # ignore these plugins
 wp-content/plugins/hello.php
