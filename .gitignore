@@ -5,6 +5,8 @@
 # "mu-plugins", "plugins", "themes" directory
 wp-content/*
 !wp-content/mu-plugins/
+!wp-content/plugins/
+wp-content/plugins/*
 !wp-content/plugins/post-mark-as-read/
 
 # ignore these plugins
@@ -15,6 +17,9 @@ wp-content/themes/twenty*/
 
 # ignore node dependency directories
 node_modules/
+
+# ignore vendor files
+vendor/
 
 # ignore log files and databases
 *.log
