@@ -1,0 +1,10 @@
+#pmarPostID {
+	background-color: #FF6903;
+	border: none;
+}
+#pmarPostID:hover {
+	background-color: #51a951;
+}
+#pmarPostID.pmar_read {
+	background-color: #5cb85c;
+}
