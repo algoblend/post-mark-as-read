@@ -38,7 +38,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: wp-content/plugins/post-mark-as-read && composer install -n --prefer-dist
+      - run: cd wp-content/plugins/post-mark-as-read && composer install -n --prefer-dist
 
       - save_cache:
           key: v1-dependencies-{{ checksum "wp-content/plugins/post-mark-as-read/composer.json" }}
