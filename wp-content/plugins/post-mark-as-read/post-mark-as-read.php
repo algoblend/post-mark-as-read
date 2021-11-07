@@ -7,3 +7,5 @@
 * Author: Alok Verma
 * Author URI: http://algoblend.com/alok-verma
 **/
+
+defined( 'ABSPATH' ) or die( "Access denied !" );

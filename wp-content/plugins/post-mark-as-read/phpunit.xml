@@ -1,0 +1,9 @@
+<phpunit bootstrap="tests/phpunit/bootstrap.php" backupGlobals="false"
+        colors="false" convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true" convertWarningsToExceptions="true">
+        <testsuites>
+                <testsuite>
+                        <file>tests/phpunit/tests/post-mark-as-read-access-test.php</file>
+                </testsuite>
+        </testsuites>
+</phpunit>
