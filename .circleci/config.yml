@@ -29,6 +29,7 @@ jobs:
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
+      - run: cd wp-content/plugins/post-mark-as-read && ls
 
       # Download and cache dependencies
       - restore_cache:
@@ -38,7 +39,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: cd wp-content/plugins/post-mark-as-read
       - run: composer install -n --prefer-dist
 
       - save_cache:
