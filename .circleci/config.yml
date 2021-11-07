@@ -46,4 +46,4 @@ jobs:
             - ./vendor
 
       # run tests with phpunit or codecept
-      - run: cd wp-content/plugins/post-mark-as-read && ./vendor/bin/phpunit
+      # - run: cd wp-content/plugins/post-mark-as-read && ./vendor/bin/phpunit
