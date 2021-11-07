@@ -21,7 +21,7 @@ jobs:
       #
       # - image: redis:2.8.19
       # set working dir
-    working_directory: wp-content/plugins/post-mark-as-read
+    working_directory: ~/wp-content/plugins/post-mark-as-read
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
