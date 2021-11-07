@@ -29,22 +29,21 @@ jobs:
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
-      - run: cd wp-content/plugins/post-mark-as-read && ls && pwd
 
       # Download and cache dependencies
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
+            - v1-dependencies-{{ checksum "wp-content/plugins/post-mark-as-read/composer.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: composer install -n --prefer-dist
+      - run: wp-content/plugins/post-mark-as-read && composer install -n --prefer-dist
 
       - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
+          key: v1-dependencies-{{ checksum "wp-content/plugins/post-mark-as-read/composer.json" }}
           paths:
             - ./vendor
 
       # run tests with phpunit or codecept
-      - run: ./vendor/bin/phpunit
+      - run: cd wp-content/plugins/post-mark-as-read && ./vendor/bin/phpunit
