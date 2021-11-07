@@ -21,7 +21,7 @@ jobs:
       #
       # - image: redis:2.8.19
       # set working dir
-    working_directory: ~/wp-content/plugins/post-mark-as-read
+    working_directory: ~/wp_plugin
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -38,7 +38,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: pwd && ls
+      - run: cd wp-content/plugins/post-mark-as-read
       - run: composer install -n --prefer-dist
 
       - save_cache:
