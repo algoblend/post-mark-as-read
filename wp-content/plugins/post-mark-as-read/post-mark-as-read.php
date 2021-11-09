@@ -40,6 +40,7 @@ function init(){
 	        	<select name="pmar_button_location">
 	        		<option value="pmar_after_content" <?php if( get_option('pmar_button_location') == 'pmar_after_content') { echo 'selected'; }  ?>>After Content</option>
 	        		<option value="pmar_before_content" <?php if( get_option('pmar_button_location') == 'pmar_before_content') { echo 'selected'; }  ?>>Before Content</option>
+	        		<option value="pmar_button_widget" <?php if( get_option('pmar_button_location') == 'pmar_button_widget') { echo 'selected'; }  ?>>Enable Widget</option>
 	        	</select>
 	        </td>
 	        </tr>
@@ -181,3 +182,32 @@ function pmarAjaxSubmit(){
 	wp_send_json( $response );
 	wp_die(); // ajax call must die to avoid trailing 0 in your response
 }
+
+/* Create Short Code */
+function pmar_widget($content=""){
+	if(is_single() && is_main_query() && is_user_logged_in()){
+		$before = $after = '';
+		$pmar_button_title = esc_attr(get_option('pmar_button_title'));
+		$pmar_button_icon = get_option('pmar_button_icon')." ";
+		$pmar_button_location = esc_attr(get_option('pmar_button_location'));
+
+		// Get Post meta data
+		$post_id = get_the_ID();
+		$get_post_meta = get_post_meta($post_id, 'pmar_read', true );
+		$pmar_button_class = "";
+		if($get_post_meta != '' && $get_post_meta == 'read'){
+			$pmar_button_title = 'Completed';
+			$pmar_button_class = 'class="pmar_read"';
+			$pmar_button_icon = '<i class="fas fa-check"></i> ';
+		}
+
+		if($pmar_button_location == 'pmar_button_widget'){
+			$after = '<p><button '.$pmar_button_class.' id="pmarPostID" value="'.get_the_ID().'">'.$pmar_button_icon.$pmar_button_title.'</button></p>';
+		}
+		//modify the incoming content 
+		$content = $before . $content . $after;
+	}
+	return $content; 
+}
+
+add_shortcode('pmar_btn', 'pmar_widget');
