@@ -1,23 +1,21 @@
 jQuery(document).ready( function($){
-  /* Some event will trigger the ajax call, you can push whatever data to the server, */
-  /* simply passing it to the "data" object in ajax call */
-
     $('#pmarPostID').click(function() {
       var pmarPostID =  $("#pmarPostID").val();
       if (pmarPostID == "" ) {
         alert("Please Reload the page.");
       }else{
         $.ajax({
-          url: pmar_ajax_object.pmarAjaxURL, /* this is the object instantiated in wp_localize_script function */
+          url: pmar_ajax_object.pmarAjaxURL,
           type: 'POST',
           data:{
-            action: pmar_ajax_object.pmarAjaxAction, /* this is the function in your functions.php that will be triggered */
-            post_id: pmarPostID
+            action: pmar_ajax_object.pmarAjaxAction,
+            post_id: pmarPostID,
+            nonce: pmar_ajax_object.nonce
           },
           success: function( data ) {
-            //  Do something with the result from server
-            if (data.status == "error") {
-
+            if (data.success === false) {
+              alert(data.data.message || 'An error occurred');
+              return;
             }
             if (data.status == 'read') {
               $("#pmarPostID").addClass('pmar_read');
@@ -26,6 +24,9 @@ jQuery(document).ready( function($){
               $("#pmarPostID").removeClass('pmar_read');
               $("#pmarPostID").empty().html('<i class="fas fa-circle"></i> Complete');
             }
+          },
+          error: function(xhr, status, error) {
+            alert('An error occurred: ' + error);
           }
         });
       }
