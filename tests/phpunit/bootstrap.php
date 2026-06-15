@@ -5,13 +5,15 @@
  */
 
 // Composer autoloader
-$autoload = dirname(dirname(__DIR__)) . '/vendor/autoload.php';
+$autoload = dirname(dirname(dirname(__FILE__))) . '/vendor/autoload.php';
 if (file_exists($autoload)) {
     require_once $autoload;
 }
 
 // Set up test environment
 define('ABSPATH', '/tmp/wordpress/');
+define('WP_CONTENT_DIR', dirname(dirname(dirname(__FILE__))));
+define('WP_PLUGIN_DIR', dirname(dirname(dirname(__FILE__))));
 
 echo "\n";
 echo "========================================\n";

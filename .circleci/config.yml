@@ -33,6 +33,7 @@ jobs:
           command: |
             cd wp-content/plugins/post-mark-as-read
             composer install -n --prefer-dist --no-progress
+            composer update -n --no-progress
       
       # Save dependency cache
       - save_cache:
