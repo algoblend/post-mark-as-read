@@ -1,10 +1,45 @@
 #pmarPostID {
-	background-color: #FF6903;
+	background: linear-gradient(135deg, #FF6903 0%, #ff8533 100%);
 	border: none;
+	color: white;
+	padding: 12px 24px;
+	font-size: 16px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 5px rgba(255, 105, 3, 0.3);
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 500;
 }
+
 #pmarPostID:hover {
-	background-color: #51a951;
+	background: linear-gradient(135deg, #51a951 0%, #6bc76b 100%);
+	box-shadow: 0 4px 8px rgba(81, 169, 81, 0.4);
+	transform: translateY(-2px);
 }
+
+#pmarPostID:active {
+	transform: translateY(0);
+}
+
 #pmarPostID.pmar_read {
-	background-color: #5cb85c;
+	background: linear-gradient(135deg, #5cb85c 0%, #6bc76b 100%);
+	box-shadow: 0 2px 5px rgba(92, 184, 92, 0.3);
+}
+
+#pmarPostID.pmar_read:hover {
+	background: linear-gradient(135deg, #4a9d4a 0%, #5cb85c 100%);
+}
+
+#pmarPostID i {
+	font-size: 14px;
+}
+
+@media (max-width: 768px) {
+	#pmarPostID {
+		padding: 10px 20px;
+		font-size: 14px;
+	}
 }
