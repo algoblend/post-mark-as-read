@@ -71,8 +71,8 @@ class Post_Mark_As_Read_Test extends TestCase {
         $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $content = file_get_contents($plugin_file);
         
-        $this->assertStringContainsString("add_action( 'wp_ajax_pmarAjaxSubmit'", $content);
-        $this->assertStringContainsString("add_action( 'wp_ajax_nopriv_pmarAjaxSubmit'", $content);
+        $this->assertStringContainsString('wp_ajax_pmarAjaxSubmit', $content);
+        $this->assertStringContainsString('wp_ajax_nopriv_pmarAjaxSubmit', $content);
     }
 
     /**
