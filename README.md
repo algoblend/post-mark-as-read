@@ -183,6 +183,54 @@ Reading data is stored as post meta:
 - PHP 7.0 or higher
 - jQuery (included with WordPress)
 
+## Testing
+
+The plugin includes comprehensive unit tests using PHPUnit. See [TESTING.md](wp-content/plugins/post-mark-as-read/TESTING.md) for detailed testing documentation.
+
+### Running Tests Locally
+
+```bash
+cd wp-content/plugins/post-mark-as-read
+composer install
+composer test
+```
+
+### Continuous Integration
+
+Tests run automatically on:
+- **GitHub Actions**: [![Build Plugin](https://github.com/algoblend/post-mark-as-read/actions/workflows/php.yml/badge.svg?branch=main)](https://github.com/algoblend/post-mark-as-read/actions/workflows/php.yml)
+- **CircleCI**: [![CircleCI](https://circleci.com/gh/algoblend/post-mark-as-read/tree/main.svg?style=shield)](https://circleci.com/gh/algoblend/post-mark-as-read/tree/main)
+
+#### How to Check CI/CD Status
+
+**GitHub Actions:**
+1. Go to the [Actions tab](https://github.com/algoblend/post-mark-as-read/actions) in the repository
+2. Click on any workflow run to see detailed logs
+3. Green checkmark ✅ = all tests passed
+4. Red X ❌ = tests failed (click to see which tests)
+
+**CircleCI:**
+1. Visit [CircleCI Dashboard](https://app.circleci.com/pipelines/github/algoblend/post-mark-as-read)
+2. View build history and test results
+3. Click on any build for detailed logs
+4. Success = green, Failure = red
+
+### Test Coverage
+
+Our test suite includes:
+- Plugin activation and initialization
+- Admin menu and submenu registration
+- Settings and options management
+- Per-user reading status tracking
+- AJAX handler security and functionality
+- REST API endpoint registration and authentication
+- Content filters and shortcodes
+- Script/style enqueueing
+- Export/import functionality
+- Uninstall cleanup
+
+15+ test cases covering all major features.
+
 ## Support & Contributing
 - Report issues on [GitHub Issues](https://github.com/algoblend/post-mark-as-read/issues)
 - Submit pull requests for improvements

@@ -45,5 +45,5 @@ jobs:
           paths:
             - ./vendor
 
-      # run tests with phpunit or codecept
-      # - run: cd wp-content/plugins/post-mark-as-read && ./vendor/bin/phpunit
+      # run tests with phpunit
+      - run: cd wp-content/plugins/post-mark-as-read && ./vendor/bin/phpunit --colors=always
