@@ -92,19 +92,34 @@ Tests: 15, Assertions: 24, Failures: 1.
 
 ## CircleCI Configuration
 
-The build is configured in `.circleci/config.yml`:
+The build is configured in `.circleci/config.yml` using **CircleCI 2.1**:
 
 ```yaml
+version: 2.1
+
 jobs:
-  build:
+  build-and-test:
     docker:
-      - image: circleci/php:7.4
+      - image: cimg/php:7.4
     
     steps:
       - checkout
       - run: composer install
       - run: ./vendor/bin/phpunit --colors=always
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build-and-test
 ```
+
+### Key Features of CircleCI 2.1
+
+- **Modern Docker images** (`cimg/php:7.4`)
+- **Workflows** for organizing jobs
+- **Named steps** for better readability
+- **Test result storage** for historical tracking
+- **Artifact storage** for test reports
 
 ## What Gets Tested
 
