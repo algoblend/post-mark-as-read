@@ -14,7 +14,7 @@ class Post_Mark_As_Read_Test extends TestCase {
      * Test that main plugin file exists
      */
     public function test_plugin_file_exists() {
-        $plugin_file = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/post-mark-as-read.php';
+        $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $this->assertFileExists($plugin_file);
     }
 
@@ -22,7 +22,7 @@ class Post_Mark_As_Read_Test extends TestCase {
      * Test that plugin file has valid PHP syntax
      */
     public function test_plugin_file_syntax() {
-        $plugin_file = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/post-mark-as-read.php';
+        $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $output = [];
         $return_var = 0;
         exec("php -l " . escapeshellarg($plugin_file) . " 2>&1", $output, $return_var);
@@ -33,7 +33,7 @@ class Post_Mark_As_Read_Test extends TestCase {
      * Test plugin header information
      */
     public function test_plugin_header() {
-        $plugin_file = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/post-mark-as-read.php';
+        $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $content = file_get_contents($plugin_file);
         
         $this->assertStringContainsString('Plugin Name:', $content);
@@ -45,7 +45,7 @@ class Post_Mark_As_Read_Test extends TestCase {
      * Test that security constant is checked
      */
     public function test_security_check() {
-        $plugin_file = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/post-mark-as-read.php';
+        $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $content = file_get_contents($plugin_file);
         
         $this->assertStringContainsString("defined('ABSPATH')", $content);
@@ -55,7 +55,7 @@ class Post_Mark_As_Read_Test extends TestCase {
      * Test that required functions are defined
      */
     public function test_required_functions_exist() {
-        $plugin_file = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/post-mark-as-read.php';
+        $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $content = file_get_contents($plugin_file);
         
         // Check for main functions
@@ -68,7 +68,7 @@ class Post_Mark_As_Read_Test extends TestCase {
      * Test that AJAX actions are registered
      */
     public function test_ajax_actions_registered() {
-        $plugin_file = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/post-mark-as-read.php';
+        $plugin_file = dirname(dirname(dirname(dirname(__FILE__)))) . '/post-mark-as-read.php';
         $content = file_get_contents($plugin_file);
         
         $this->assertStringContainsString("add_action( 'wp_ajax_pmarAjaxSubmit'", $content);
