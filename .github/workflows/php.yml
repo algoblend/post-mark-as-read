@@ -16,7 +16,7 @@ jobs:
         working-directory: wp-content/plugins/post-mark-as-read
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
