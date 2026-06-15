@@ -84,7 +84,7 @@ class Post_Mark_As_Read_Test extends TestCase {
         
         $this->assertStringContainsString("add_action('rest_api_init'", $content);
         $this->assertStringContainsString('register_rest_route', $content);
-        $this->assertStringContainsString('/pmar/v1/', $content);
+        $this->assertStringContainsString("'pmar/v1'", $content);
     }
 
     /**
